@@ -3,114 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="this page convert binary to decimal that's it">
+    <meta name="keywords" content="convert binary to decimal, dinary, decimal">
     <title>Binario a Decimal</title>
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        .wrap {
-            margin-left: auto;
-            margin-right: auto;
-            padding: 3rem;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-        .label {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .inputBinary {
-            padding: 0.5rem;
-            border-radius: 8px;
-        }
-
-        .showResult {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .button {
-            padding: 0.5rem;
-            background-color: rgb(18, 104, 161);
-            color: white;
-            border-radius: 100px;
-        }
-        .button:hover {
-            transform: scaleY(1.1);
-            transition: all 300ms;
-            padding: 0.5rem;
-            background-color: hsl(204, 80%, 25%);
-            color: white;
-            border-radius: 100px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wrap">
-        <label for="inputBinary" class="label">Convertir binario a decimal</label>
-        <input class="inputBinary" type="text" placeholder="Ejemplo: 101010" id="inputBinary">
-        <p id="finalResult" class="showResult"></p>
-        <button class="button" id="convert">Convertir</button>
+    <div class="background-container">
+        <div class="wrap">
+            <label for="inputBinary" class="label">Binario:</label>
+            <input class="inputBinary" type="text" placeholder="Ejemplo: 101010" id="inputBinary">
+            <p id="finalResult" class="showResult">00000</p>
+            <button class="button" id="convert">Convertir a decimal</button>
+        </div>
     </div>
 
-    <script>
-        const base = 2;
-        let inputBinary = document.getElementById("inputBinary");
-        let finalResult = document.getElementById("finalResult");
-        let buttonConvert = document.getElementById("convert");
-
-        const convertDecimal = () => {
-
-
-            let lengthBinary = (inputBinary.value.length) - 1; //retorna la cantidad de elementos -1
-            let arrayBinary = inputBinary.value.split(""); //convierte a un array
-            let valueBinary = parseInt(inputBinary.value); //retonara NaN is es valor no es un numero
-
-
-            if (valueBinary){
-                if(inputBinary.value.includes("2") || inputBinary.value.includes("3") || inputBinary.value.includes("4")
-                || inputBinary.value.includes("5") || inputBinary.value.includes("6") || inputBinary.value.includes("7")
-                || inputBinary.value.includes("8") || inputBinary.value.includes("9")){
-                    finalResult.textContent = "no es un valor binario valido"
-                } else {
-
-                    let arrayPotencia = [] //array para guardar los exponentes
-                    for(let i=0; i<=lengthBinary; i++){
-                        arrayPotencia.push(Math.pow(base, i));
-                    }
-
-                    let arraySumar = [];
-                    for (let i=0; i<=lengthBinary; i++){
-                        if(arrayPotencia[i] + parseInt(arrayBinary[i])  !== arrayPotencia[i]) {
-                            arraySumar.push(arrayPotencia[i]);
-                        }
-
-                    } 
-                    let resultado = 0;
-                    arraySumar.forEach(element => {
-                        resultado += element;
-                    });  
-
-                    
-                    finalResult.textContent = "en decimal es " + resultado;
-                }
-            
-            } else {
-                finalResult.textContent = "ingresa un valor valido"
-            }
-
-        }
-
-        buttonConvert.addEventListener("click", convertDecimal);
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

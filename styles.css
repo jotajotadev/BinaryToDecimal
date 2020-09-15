@@ -1,0 +1,83 @@
+:root {
+    --primary: #4465B9;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--primary);
+    margin: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.background-container {
+    background-color: #F5F5F5;
+    margin-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 1rem 1rem 0 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    flex-grow: 1;
+    max-width: 360px;
+}
+
+.wrap > * {
+    display: block;
+    width: 100%;
+}
+
+.label {
+    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.inputBinary {
+    padding: 1rem;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    outline: none;
+    
+}
+
+.inputBinary::placeholder {
+    font-size: 12px;
+}
+
+.showResult {
+    text-align: right;
+    color: var(--primary);
+    font-weight: bold;
+}
+.inputBinary:focus {
+    border: 2px solid var(--primary);
+}
+.button {
+    height: 48px;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+    background-color: #0E9E48;
+    transition: background 300ms ease-out;
+    border: none;
+    outline: none;
+}
+
+.button:hover,
+.button:active {
+    border: none;
+    transition: background 300ms ease-in;
+    background-color: var(--primary);
+    outline: none;
+    box-shadow: none;
+}
+
